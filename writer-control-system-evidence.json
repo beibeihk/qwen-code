@@ -1,0 +1,12 @@
+{
+  "derivedFrom": "actual portable-control requests.ndjson (retained locally)",
+  "requestIndex": 1,
+  "inspectedRole": "system",
+  "hasManagedMemoryHeader": true,
+  "admittedLongEntriesPresent": [
+    true,
+    true
+  ],
+  "admittedOrdinaryEntriesPresent": 12,
+  "hasLoadingWarning": true
+}

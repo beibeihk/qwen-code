@@ -5,8 +5,9 @@ import { createHash, randomUUID } from 'node:crypto';
 import { createServer } from 'node:http';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { OVERLONG_INDEX, OVERLONG_MARKER, OVERLONG_ENTRY, OVERLONG_TARGET, RETAINED_ENTRY, SHORT_INDEX } from './issue13178-fixture.mjs';
+import { makeWriterNoticeFixture, WRITER_NOTICE } from './issue13178-writer-fixture.mjs';
 
 const args = process.argv.slice(2);
 const options = {};
@@ -17,7 +18,7 @@ const bundlePath = resolve(options.bundle);
 const bundleSha256 = createHash('sha256').update(await readFile(bundlePath)).digest('hex');
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const fixtureKind = options.fixture ?? 'overlong';
-assert(['overlong', 'short'].includes(fixtureKind), '--fixture overlong|short');
+assert(['overlong', 'short', 'writer-notice'].includes(fixtureKind), '--fixture overlong|short|writer-notice');
 const name = `${options.expect}-${fixtureKind}-${new Date().toISOString().replace(/[:.]/g, '-')}-${randomUUID().slice(0, 8)}`;
 const evidenceDir = resolve(options.evidence ?? join(scriptDir, 'evidence', name));
 const isolatedHome = join(evidenceDir, 'home');
@@ -27,7 +28,16 @@ const memoryBase = join(evidenceDir, 'memory-store');
 const userMemory = join(memoryBase, 'memories');
 const fixtureWorkspace = join(evidenceDir, 'workspace');
 for (const folder of [qwenConfig, runtimeDir, userMemory, fixtureWorkspace]) await mkdir(folder, { recursive: true });
-const fixtureIndex = fixtureKind === 'overlong' ? OVERLONG_INDEX : SHORT_INDEX;
+let writerFixture;
+let writerModulePath;
+if (fixtureKind === 'writer-notice') {
+  // A bundle at <repo>/dist/cli.js identifies its own compiled core writer.
+  // Keep this fixture independent of the evidence scripts' installation path.
+  writerModulePath = join(dirname(dirname(bundlePath)), 'packages', 'core', 'dist', 'src', 'memory', 'indexer.js');
+  const writer = await import(pathToFileURL(writerModulePath).href);
+  writerFixture = makeWriterNoticeFixture(writer.buildManagedAutoMemoryIndex);
+}
+const fixtureIndex = writerFixture?.index ?? (fixtureKind === 'overlong' ? OVERLONG_INDEX : SHORT_INDEX);
 await writeFile(join(userMemory, 'MEMORY.md'), fixtureIndex + '\n');
 await writeFile(join(userMemory, 'retained.md'), '---\nname: Synthetic retained note\ndescription: Local test fixture only\ntype: reference\n---\nA synthetic short note.\n');
 const systemSettings = join(evidenceDir, 'system-settings.json');
@@ -134,6 +144,11 @@ const summary = {
   loadedOverlongLineEndsWith: loadedOverlongLine.slice(-18),
   hasOverlongMarker: markerAt >= 0, hasCompleteOverlongTarget: systemPrompt.includes(OVERLONG_TARGET + ')'),
   hasRetainedEntry: systemPrompt.includes(RETAINED_ENTRY), hasTruncationWarning: systemPrompt.includes('WARNING: MEMORY.md'),
+  writerFixture: writerFixture?.metadata,
+  writerModulePath,
+  writerAdmittedLongEntriesInSystem: writerFixture?.longEntries.map((line) => systemPrompt.includes(line)),
+  writerOrdinaryEntriesInSystem: writerFixture?.ordinaryEntries.filter((line) => systemPrompt.includes(line)).length,
+  exactWriterNoticeInSystem: writerFixture ? systemPrompt.includes(WRITER_NOTICE.trim()) : undefined,
   cliResult: result, exit, timedOut, evidenceDir,
 };
 await Promise.all([
@@ -150,7 +165,17 @@ assert(mainRequest, 'No actual main request captured');
 assert(summary.memoryHeaderInSystem, 'The actual system message must contain managed memory');
 assert.equal(result?.is_error, false, 'CLI probe must complete successfully');
 assert(result?.result?.includes('MEMORY_PROBE_OK'));
-if (fixtureKind === 'short') {
+if (fixtureKind === 'writer-notice') {
+  assert.equal(summary.writerAdmittedLongEntriesInSystem[0], true, 'First writer-admitted long link must be visible');
+  assert.equal(summary.writerOrdinaryEntriesInSystem, 12, 'All writer-admitted ordinary entries must remain visible');
+  if (options.expect === 'before') {
+    assert.equal(summary.writerAdmittedLongEntriesInSystem[1], false, 'Current patch should expose writer-notice eviction');
+    assert.equal(summary.exactWriterNoticeInSystem, true, 'The actual writer notice should be loaded as observed');
+  } else {
+    assert.equal(summary.writerAdmittedLongEntriesInSystem[1], true, 'Fixed reader must preserve the second writer-admitted complete link');
+    assert(summary.hasTruncationWarning, 'The writer-notice case must retain warning guidance');
+  }
+} else if (fixtureKind === 'short') {
   assert(summary.hasRetainedEntry, 'Short index should load intact');
   assert(!summary.hasTruncationWarning, 'Short index should not be warned as oversized');
 } else if (options.expect === 'before') {

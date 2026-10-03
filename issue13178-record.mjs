@@ -40,7 +40,7 @@ const emit = (data, channel = 'recorder') => {
 };
 emit(`$ ${command}\n`);
 const child = spawn(process.execPath, commandArgs, {
-  cwd: resolve(scriptDir, '../..'), windowsHide: true,
+  cwd: scriptDir, windowsHide: true,
   stdio: ['ignore', 'pipe', 'pipe'],
 });
 child.stdout.setEncoding('utf8');
@@ -61,7 +61,7 @@ try {
     writeFile(`${castPath}.chunks.ndjson`, ndjson(chunks)),
     writeFile(`${castPath}.meta.json`, JSON.stringify({
       command, nodeBinary: process.execPath, args: commandArgs,
-      cwd: resolve(scriptDir, '../..'), startedAt: startedAt.toISOString(),
+      cwd: scriptDir, startedAt: startedAt.toISOString(),
       finishedAt: new Date().toISOString(), elapsedSeconds: elapsed(),
       exit, castPath,
       recordingType: 'actual headless stdout/stderr chunks; not interactive TUI capture',
