@@ -1,0 +1,9 @@
+{
+  "derivedFrom": "requests.ndjson",
+  "requestIndex": 1,
+  "inspectedRole": "system",
+  "loadedLineChars": 25000,
+  "loadedLineTail": "AAAAAAAAA](notes/%",
+  "hasManagedMemoryHeader": true,
+  "hasRetainedEntry": false
+}

@@ -1,0 +1,47 @@
+{
+  "expect": "after",
+  "fixtureKind": "overlong",
+  "bundlePath": "C:\\D_Drive\\qwen-code-pr13280\\dist\\cli.js",
+  "bundleSha256": "d350b6770be8de13c2b723d92df783d05f2fe3da3a3a0c30676312ac211ba972",
+  "nodeVersion": "v24.12.0",
+  "fakeProviderOnly": true,
+  "syntheticMemoryOnly": true,
+  "fixtureFirstLineChars": 25209,
+  "fixtureTotalChars": 25272,
+  "first25000CharsContainNewline": false,
+  "userMemoryIndex": "C:\\D_Drive\\qwen-code-pr13280\\.qwen\\e2e-tests\\evidence\\after-overlong-2026-10-03T13-10-20-251Z-88418aa1\\memory-store\\memories\\MEMORY.md",
+  "actualRequestCount": 3,
+  "capturedMainRequest": true,
+  "capturedMainRequestIndex": 1,
+  "memoryHeaderInSystem": true,
+  "loadedOverlongLineChars": 0,
+  "loadedOverlongLineEndsWith": "",
+  "hasOverlongMarker": false,
+  "hasCompleteOverlongTarget": false,
+  "hasRetainedEntry": true,
+  "hasTruncationWarning": true,
+  "cliResult": {
+    "type": "result",
+    "subtype": "success",
+    "uuid": "1fca2b8f-c48c-42d5-bc55-db114b0ed301",
+    "session_id": "34ddee88-f614-4113-bfb3-74716dc0e0b3",
+    "is_error": false,
+    "duration_ms": 948,
+    "duration_api_ms": 586,
+    "num_turns": 1,
+    "result": "MEMORY_PROBE_OK",
+    "usage": {
+      "input_tokens": 60000,
+      "output_tokens": 12,
+      "cache_read_input_tokens": 0,
+      "total_tokens": 60012
+    },
+    "permission_denials": []
+  },
+  "exit": {
+    "code": 0,
+    "signal": null
+  },
+  "timedOut": false,
+  "evidenceDir": "C:\\D_Drive\\qwen-code-pr13280\\.qwen\\e2e-tests\\evidence\\after-overlong-2026-10-03T13-10-20-251Z-88418aa1"
+}

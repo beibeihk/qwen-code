@@ -1,0 +1,9 @@
+export const OVERLONG_MARKER = 'issue13178-overlong';
+export const RETAINED_ENTRY = '- [issue13178-retained](retained.md) — synthetic retained hook';
+const prefixLength = 24_993;
+const title = OVERLONG_MARKER + 'A'.repeat(prefixLength - 5 - OVERLONG_MARKER.length);
+export const OVERLONG_PREFIX = `- [${title}](`;
+export const OVERLONG_TARGET = `notes/${encodeURIComponent('中'.repeat(20))}.md`;
+export const OVERLONG_ENTRY = `${OVERLONG_PREFIX}${OVERLONG_TARGET}) — synthetic overlong hook`;
+export const OVERLONG_INDEX = `${OVERLONG_ENTRY}\n${RETAINED_ENTRY}`;
+export const SHORT_INDEX = `${RETAINED_ENTRY}\n`;
