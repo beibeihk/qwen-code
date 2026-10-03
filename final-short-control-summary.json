@@ -2,14 +2,14 @@
   "expect": "after",
   "fixtureKind": "short",
   "bundlePath": "C:\\D_Drive\\qwen-code-pr13280\\dist\\cli.js",
-  "bundleSha256": "63b21b6ff70be8515f88f6674296f0108820789cb084fe6890cda0d6890b911e",
+  "bundleSha256": "c8c1ced224e15c901285285dce0efd32d816cbf4de9a4d8b524dcdc877f2b46c",
   "nodeVersion": "v24.12.0",
   "fakeProviderOnly": true,
   "syntheticMemoryOnly": true,
   "fixtureFirstLineChars": 62,
   "fixtureTotalChars": 63,
   "first25000CharsContainNewline": true,
-  "userMemoryIndex": "C:\\D_Drive\\不常用的文件\\codex_project\\批量提交github的ai项目\\research\\qwen-memory-evidence\\evidence\\after-short-2026-10-03T15-23-37-133Z-706f7249\\memory-store\\memories\\MEMORY.md",
+  "userMemoryIndex": "C:\\D_Drive\\不常用的文件\\codex_project\\批量提交github的ai项目\\research\\qwen-memory-evidence\\evidence\\after-short-2026-10-03T16-17-48-897Z-54b0c52f\\memory-store\\memories\\MEMORY.md",
   "actualRequestCount": 3,
   "capturedMainRequest": true,
   "capturedMainRequestIndex": 1,
@@ -23,11 +23,11 @@
   "cliResult": {
     "type": "result",
     "subtype": "success",
-    "uuid": "8083a8e9-f54b-4b91-b748-7bf4e1203898",
-    "session_id": "df8439a0-90c5-4505-916a-46b216c13d91",
+    "uuid": "eae0e873-13d2-4532-b9ca-a511d3692263",
+    "session_id": "f6b788a8-014f-43f1-94a2-fcb772ebe4bb",
     "is_error": false,
-    "duration_ms": 1053,
-    "duration_api_ms": 706,
+    "duration_ms": 602,
+    "duration_api_ms": 419,
     "num_turns": 1,
     "result": "MEMORY_PROBE_OK",
     "usage": {
@@ -43,5 +43,5 @@
     "signal": null
   },
   "timedOut": false,
-  "evidenceDir": "C:\\D_Drive\\不常用的文件\\codex_project\\批量提交github的ai项目\\research\\qwen-memory-evidence\\evidence\\after-short-2026-10-03T15-23-37-133Z-706f7249"
+  "evidenceDir": "C:\\D_Drive\\不常用的文件\\codex_project\\批量提交github的ai项目\\research\\qwen-memory-evidence\\evidence\\after-short-2026-10-03T16-17-48-897Z-54b0c52f"
 }
