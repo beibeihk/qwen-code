@@ -19,13 +19,13 @@ The synthetic overlong fixture has a 25,209-code-unit first line and 25,272-code
 ## Final real terminal recordings
 
 - [Before](before.cast) — approximately 7.551 seconds.
-- [Final after](final-after.cast) — approximately 8.168 seconds.
-- [Final short control](final-short-control.cast) — approximately 6.859 seconds.
-- [Generated-index preservation control](writer-control.cast) — approximately 10.222 seconds; also verifies the standalone harness against the compiled writer identified by the supplied bundle.
+- [Final after](final-after.cast) — approximately 7.452 seconds.
+- [Final short control](final-short-control.cast) — approximately 8.416 seconds.
+- [Generated-index preservation control](writer-control.cast) — approximately 8.060 seconds; also verifies the standalone harness against the compiled writer identified by the supplied bundle.
 
 These are asciinema v2 files containing the actual test process stdout/stderr with monotonic elapsed timestamps. They are headless terminal streams, not an interactive TUI capture. A baseline recorder returning zero means it observed the expected broken content.
 
-The companion [before summary](before-summary.json), [final after summary](final-after-summary.json), [final short summary](final-short-control-summary.json), [writer control summary](writer-control-summary.json) and system-only evidence files retain concrete assertions and bundle identity. Original `after.cast`, `short-control.cast` and their summaries are preserved as historical captures of the initial unpublished patch (`d350b677…`), not the final patch. Their earlier immutable publication is commit `c39c50c11e7512e30a9287c4cc2a9bd3c9aad601`. The initial short-control metadata referenced the wrong fixture length; it was corrected and the short control was genuinely rerun before that publication. No recording has been synthesized or retimed.
+The companion [before summary](before-summary.json), [final after summary](final-after-summary.json), [final short summary](final-short-control-summary.json), [writer control summary](writer-control-summary.json) and system-only evidence files retain concrete assertions and bundle identity. Original `after.cast`, `short-control.cast` and their summaries are preserved as historical captures of the initial unpublished patch (`d350b677…`), not the final patch. Their earlier immutable publication is commit `c39c50c11e7512e30a9287c4cc2a9bd3c9aad601`; the repaired pre-rebase `2c1f54c8` / `ab32dfb…` captures remain at immutable commit `a4b46bc37333ca6a1837c0271b78792ca32b259a`. After the last upstream rebase and build, all three controls were actually recorded again against `51ae4a8c` / `63b21b6f…`; the current final files contain those new recordings. The initial short-control metadata referenced the wrong fixture length; it was corrected and the short control was genuinely rerun before the first publication. No recording has been synthesized or retimed.
 
 ## Writer-to-reader preservation control
 
@@ -47,9 +47,9 @@ The four scripts create isolated synthetic HOME, settings, runtime and memory pa
 ## Provenance
 
 - Original before source baseline: `576689d07342dd2ba80d60ec00df23ea53251945`, including the prior writer retention fix.
-- Final source commit: `2c1f54c8e423ebaaf660c5680911b2c0ca4c392e`, rebased on `f05cf44c3d9f92b3e8e60e3426643270f0306e00`. Independent raw-blob comparison confirmed that the relevant original memory source and documentation are identical at both baselines.
+- Final source commit: `51ae4a8cc8efd5c5ba6be552668a4e9d39b5444c`, rebased on `eb0b79c5b87d781cddc65c28e70955404eb928d3`. Independent raw-blob comparison confirmed that the relevant original memory source and documentation are identical at the original, f05 and eb0 baselines. The six patched file blobs are identical between reviewed `2c1f54c8` and submitted `51ae4a8c`; the last upstream commit affects a separate managed-agent E2E runner.
 - Before bundle SHA256: `fcabd7df1f9ecd0315fd1d68acd49f532387f071add5c8661bc1757d76c29b62`.
-- Final after / short / writer-control bundle SHA256: `ab32dfb04275bb61eb35d2a2f4b0a5da3937bdb1bbb38d9c4667acd92f9ab3ff`.
+- Final after / short / writer-control bundle SHA256: `63b21b6ff70be8515f88f6674296f0108820789cb084fe6890cda0d6890b911e`.
 - Local platform: Windows 11 10.0.26200, Node 24.12.0, pnpm 11.24.0.
 - The original baseline full build was not counted as successful: an implementation-time unused import failed its later CLI phase. Baseline reader/writer source was restored, CLI workspace build and bundle completed, and then the before capture ran. The final patch completed a separate full build and bundle.
 
@@ -61,4 +61,4 @@ This proves the bundle's memory-input behavior. It does not prove task success w
 
 ## 中文说明
 
-本证据分支只包含合成内存 fixture、可复跑的本地 mock 脚本、真实时间的 headless 终端录像和实际 main request 的 system 内容检查。修复前截到半条链接并丢掉后一条短链接；最终修复整条跳过超长项，完整保留短链接，warning 仍有；普通短索引没有 warning。公开 writer→reader 控制证明正文外的 writer 提示不会挤掉两个完整长链接和十二个普通条目，并实际验证脚本可从证据仓库根目录运行。旧 after / short 录像作为未发布初稿的历史保留；正式依据是 final-after、final-short-control、writer-control 及 ab32… bundle。mock usage 不是实际 token 数，不使用真实凭据或个人记忆，也不表示全仓测试全部通过。
+本证据分支只包含合成内存 fixture、可复跑的本地 mock 脚本、真实时间的 headless 终端录像和实际 main request 的 system 内容检查。修复前截到半条链接并丢掉后一条短链接；最终修复整条跳过超长项，完整保留短链接，warning 仍有；普通短索引没有 warning。公开 writer→reader 控制证明正文外的 writer 提示不会挤掉两个完整长链接和十二个普通条目，并实际验证脚本可从证据仓库根目录运行。旧初稿和上一次 repaired build 的实际录像由不可变历史 commit 保留；正式依据是最后 rebase 后重新实录的 final-after、final-short-control、writer-control，source 51ae… / bundle 63b21…。mock usage 不是实际 token 数，不使用真实凭据或个人记忆，也不表示全仓测试全部通过。

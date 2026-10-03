@@ -1,9 +1,10 @@
 {
-  "derivedFrom": "requests.ndjson",
+  "derivedFrom": "actual submitted-head requests.ndjson (retained locally)",
   "requestIndex": 1,
   "inspectedRole": "system",
+  "hasManagedMemoryHeader": true,
   "loadedLineChars": 0,
   "loadedLineTail": "",
-  "hasManagedMemoryHeader": true,
-  "hasRetainedEntry": true
+  "hasRetainedEntry": true,
+  "hasLoadingWarning": true
 }
