@@ -5,8 +5,11 @@
   "sourceHead": "3347efdc8a34d52839abd513ff656e057d9e51cb",
   "bundleSha256": "53b23628d14ef5de15a107e64c2ba9cc81df7ec97898a679bdf92811b0469e32",
   "hasManagedMemoryHeader": true,
-  "hasLoadingWarning": false,
-  "loadedLineChars": 0,
-  "loadedLineTail": "",
-  "hasRetainedEntry": true
+  "hasLoadingWarning": true,
+  "retainedEntryIds": [
+    "LONG0",
+    "ORDINARY",
+    "TAIL"
+  ],
+  "partialEntryIds": []
 }

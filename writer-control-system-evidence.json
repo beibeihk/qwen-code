@@ -1,12 +1,14 @@
 {
-  "derivedFrom": "actual portable-control requests.ndjson (retained locally)",
+  "derivedFrom": "actual formal follow-up requests.ndjson (retained locally)",
   "requestIndex": 1,
   "inspectedRole": "system",
+  "sourceHead": "3347efdc8a34d52839abd513ff656e057d9e51cb",
+  "bundleSha256": "53b23628d14ef5de15a107e64c2ba9cc81df7ec97898a679bdf92811b0469e32",
   "hasManagedMemoryHeader": true,
+  "hasLoadingWarning": true,
   "admittedLongEntriesPresent": [
     true,
     true
   ],
-  "admittedOrdinaryEntriesPresent": 12,
-  "hasLoadingWarning": true
+  "admittedOrdinaryEntriesPresent": 12
 }

@@ -1,6 +1,6 @@
 {
   "expect": "after",
-  "fixtureKind": "short",
+  "fixtureKind": "lf-150",
   "bundlePath": "C:\\D_Drive\\qwen-code-pr13280\\dist\\cli.js",
   "bundleSha256": "53b23628d14ef5de15a107e64c2ba9cc81df7ec97898a679bdf92811b0469e32",
   "nodeVersion": "v24.12.0",
@@ -26,10 +26,10 @@
     }
   },
   "sourceDirtyAtCapture": false,
-  "fixtureFirstLineChars": 62,
-  "fixtureTotalChars": 63,
+  "fixtureFirstLineChars": 12480,
+  "fixtureTotalChars": 25144,
   "first25000CharsContainNewline": true,
-  "userMemoryIndex": "C:\\D_Drive\\qwen-code-pr13280\\.qwen\\e2e-tests\\evidence\\after-short-2026-10-04T02-34-48-918Z-489b8213\\memory-store\\memories\\MEMORY.md",
+  "userMemoryIndex": "C:\\D_Drive\\qwen-code-pr13280\\.qwen\\e2e-tests\\evidence\\after-lf-150-2026-10-04T02-34-03-973Z-4dcf66a0\\memory-store\\memories\\MEMORY.md",
   "actualRequestCount": 3,
   "capturedMainRequest": true,
   "capturedMainRequestIndex": 1,
@@ -38,16 +38,22 @@
   "loadedOverlongLineEndsWith": "",
   "hasOverlongMarker": false,
   "hasCompleteOverlongTarget": false,
-  "hasRetainedEntry": true,
-  "hasTruncationWarning": false,
+  "hasRetainedEntry": false,
+  "hasTruncationWarning": true,
+  "boundaryEntryIds": [
+    "LONG0",
+    "ORDINARY",
+    "TAIL"
+  ],
+  "boundaryPartialEntryIds": [],
   "cliResult": {
     "type": "result",
     "subtype": "success",
-    "uuid": "1aa50aef-af0e-4c0c-b2aa-472181960cf5",
-    "session_id": "d69a71a7-186e-4bb0-90a8-e488002c1b6e",
+    "uuid": "903b20e1-7787-4b67-82e1-194ba33b32fd",
+    "session_id": "c4a949e1-0529-43e1-a583-4400e7e19fc3",
     "is_error": false,
-    "duration_ms": 578,
-    "duration_api_ms": 405,
+    "duration_ms": 546,
+    "duration_api_ms": 390,
     "num_turns": 1,
     "result": "MEMORY_PROBE_OK",
     "usage": {
@@ -63,5 +69,5 @@
     "signal": null
   },
   "timedOut": false,
-  "evidenceDir": "C:\\D_Drive\\qwen-code-pr13280\\.qwen\\e2e-tests\\evidence\\after-short-2026-10-04T02-34-48-918Z-489b8213"
+  "evidenceDir": "C:\\D_Drive\\qwen-code-pr13280\\.qwen\\e2e-tests\\evidence\\after-lf-150-2026-10-04T02-34-03-973Z-4dcf66a0"
 }

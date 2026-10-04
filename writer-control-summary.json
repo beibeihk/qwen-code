@@ -2,14 +2,34 @@
   "expect": "after",
   "fixtureKind": "writer-notice",
   "bundlePath": "C:\\D_Drive\\qwen-code-pr13280\\dist\\cli.js",
-  "bundleSha256": "c8c1ced224e15c901285285dce0efd32d816cbf4de9a4d8b524dcdc877f2b46c",
+  "bundleSha256": "53b23628d14ef5de15a107e64c2ba9cc81df7ec97898a679bdf92811b0469e32",
   "nodeVersion": "v24.12.0",
+  "bundleSha256After": "53b23628d14ef5de15a107e64c2ba9cc81df7ec97898a679bdf92811b0469e32",
   "fakeProviderOnly": true,
   "syntheticMemoryOnly": true,
+  "sourceProvenanceBefore": {
+    "head": "3347efdc8a34d52839abd513ff656e057d9e51cb",
+    "trackedStatus": "",
+    "memorySourceHashes": {
+      "prompt.ts": "a6df562d58fae34c829b285145ea6f2bd4aa50a0570cdaa5964fe9dbf8189998",
+      "index-budget.ts": "3732e9e97314028d3a0e57b4477a478f904e6fdc38e4a58b3686ddc1da2dc8f6",
+      "indexer.ts": "ee91a965005532bf0e1a413489e097773d786bfd690cde2fcfee711cd9457be9"
+    }
+  },
+  "sourceProvenanceAfter": {
+    "head": "3347efdc8a34d52839abd513ff656e057d9e51cb",
+    "trackedStatus": "",
+    "memorySourceHashes": {
+      "prompt.ts": "a6df562d58fae34c829b285145ea6f2bd4aa50a0570cdaa5964fe9dbf8189998",
+      "index-budget.ts": "3732e9e97314028d3a0e57b4477a478f904e6fdc38e4a58b3686ddc1da2dc8f6",
+      "indexer.ts": "ee91a965005532bf0e1a413489e097773d786bfd690cde2fcfee711cd9457be9"
+    }
+  },
+  "sourceDirtyAtCapture": false,
   "fixtureFirstLineChars": 11559,
   "fixtureTotalChars": 25057,
   "first25000CharsContainNewline": true,
-  "userMemoryIndex": "C:\\D_Drive\\不常用的文件\\codex_project\\批量提交github的ai项目\\research\\qwen-memory-evidence\\evidence\\after-writer-notice-2026-10-03T16-18-03-184Z-79220187\\memory-store\\memories\\MEMORY.md",
+  "userMemoryIndex": "C:\\D_Drive\\qwen-code-pr13280\\.qwen\\e2e-tests\\evidence\\after-writer-notice-2026-10-04T02-35-15-494Z-a61d7351\\memory-store\\memories\\MEMORY.md",
   "actualRequestCount": 3,
   "capturedMainRequest": true,
   "capturedMainRequestIndex": 1,
@@ -49,11 +69,11 @@
   "cliResult": {
     "type": "result",
     "subtype": "success",
-    "uuid": "c6658fe7-c5ce-4a30-91a4-7a8cc1fd717d",
-    "session_id": "1fb063b5-141d-43a7-aa3c-91fc468525b7",
+    "uuid": "cd4a1205-a385-46ac-9ef6-98a0de7ce48c",
+    "session_id": "bfde0f9f-2369-4c33-92ab-621b0dc1ba4e",
     "is_error": false,
-    "duration_ms": 612,
-    "duration_api_ms": 421,
+    "duration_ms": 553,
+    "duration_api_ms": 401,
     "num_turns": 1,
     "result": "MEMORY_PROBE_OK",
     "usage": {
@@ -69,5 +89,5 @@
     "signal": null
   },
   "timedOut": false,
-  "evidenceDir": "C:\\D_Drive\\不常用的文件\\codex_project\\批量提交github的ai项目\\research\\qwen-memory-evidence\\evidence\\after-writer-notice-2026-10-03T16-18-03-184Z-79220187"
+  "evidenceDir": "C:\\D_Drive\\qwen-code-pr13280\\.qwen\\e2e-tests\\evidence\\after-writer-notice-2026-10-04T02-35-15-494Z-a61d7351"
 }
