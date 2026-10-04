@@ -74,4 +74,3 @@ This proves memory-input behavior in the built CLI. It does not prove real-model
 ## 中文说明
 
 正式首轮审查修复为 3347efdc，五个 final 场景重新实录，bundle 为 53b23628。原始超长首行会截成半条路径并丢掉后一条短链接；当前整条省略超长项、保留短项，短索引无 warning。LF/CRLF 的同一 150 码元普通项现在都保留 LONG0/ORDINARY/TAIL，没有半条条目。真实 writer 控制保留两条完整长链接及十二条普通项；另一个小于预算的真实 writer 反例说明，省略提示不能仅因文件变小就删除。新脚本已从独立证据根执行 writer 控制，旧录像以历史 commit 保留。所有内容合成、请求仅 loopback，公开前做隐私扫描；mock usage 不是真实 token 数，这些录像也不表示全仓测试或远端 CI 全部通过。
-
